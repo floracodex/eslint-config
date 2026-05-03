@@ -23,7 +23,7 @@ The `lib` preset is intentionally stricter than the application presets (severit
 npm install --save-dev @floracodex/eslint-config eslint
 ```
 
-ESLint itself is a peer dependency. Plugin dependencies (`typescript-eslint`, `@stylistic/eslint-plugin`, `globals`, `@eslint/js`, `angular-eslint`) are bundled — consumers do not need to install them directly.
+ESLint itself is a peer dependency. All other plugin dependencies are bundled — consumers do not need to install them directly.
 
 ## Usage
 
@@ -53,21 +53,13 @@ export default createConfig({
 
 ```js
 import {createConfig} from '@floracodex/eslint-config/frontend';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-    ...createConfig({rootDir: import.meta.dirname}),
-    {
-        files: ['**/*.ts'],
-        rules: {
-            '@angular-eslint/component-selector': ['warn', {type: 'element', prefix: 'fc', style: 'kebab-case'}],
-            '@angular-eslint/directive-selector': ['warn', {type: 'attribute', prefix: 'fc', style: 'camelCase'}]
-        }
-    }
-);
+export default createConfig({
+    rootDir: import.meta.dirname
+});
 ```
 
-The frontend preset deliberately does **not** enforce a component selector prefix — projects set their own.
+The frontend preset is intentionally minimal beyond TypeScript and template fundamentals. Project-specific rules (e.g. component selector prefixes) belong in the consumer's own config — see [Overrides](#overrides) below.
 
 ### functions
 

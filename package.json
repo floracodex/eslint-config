@@ -1,7 +1,7 @@
 {
   "name": "@floracodex/eslint-config",
   "version": "1.0.0",
-  "description": "Shared ESLint flat-config presets for Flora Codex TypeScript projects (lib, NestJS, Angular, Firebase Functions)",
+  "description": "Shared ESLint flat-config presets for Flora Codex TypeScript projects (lib, backend, frontend, functions)",
   "type": "module",
   "exports": {
     "./lib": {
