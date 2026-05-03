@@ -1,8 +1,8 @@
 import {describe, expect, it} from 'vitest';
-import {createConfig} from '../src/angular.js';
+import {createConfig} from '../src/frontend.js';
 import {serializeConfig} from './snapshot-helper.js';
 
-describe('angular preset', () => {
+describe('frontend preset', () => {
     it('matches snapshot', () => {
         const config = createConfig({rootDir: '/fake/root'});
         expect(serializeConfig(config)).toMatchSnapshot();

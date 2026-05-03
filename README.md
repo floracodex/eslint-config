@@ -11,8 +11,8 @@ Four presets, exported as separate subpaths so consumers only pull in the depend
 | Preset | Subpath | For |
 |---|---|---|
 | `lib` | `@floracodex/eslint-config/lib` | Standalone TypeScript libraries (Node ≥20, no framework) — strict rules |
-| `service` | `@floracodex/eslint-config/service` | Backend service applications — lax rules, `*.spec.ts` overrides, jest globals, CommonJS |
-| `angular` | `@floracodex/eslint-config/angular` | Angular apps and libs — `angular-eslint`, browser + jasmine globals, HTML template rules |
+| `backend` | `@floracodex/eslint-config/backend` | Backend service applications — lax rules, `*.spec.ts` overrides, jest globals, CommonJS |
+| `frontend` | `@floracodex/eslint-config/frontend` | Frontend apps and libs — browser + jasmine globals, HTML template rules |
 | `functions` | `@floracodex/eslint-config/functions` | Cloud function runtimes (Node 20) — node + jest globals, CommonJS, default-export friendly |
 
 The `lib` preset is intentionally stricter than the application presets (severity = `error` on safety rules; the app presets downgrade them to `warn` to accommodate codebases that aren't fully strict-typed yet).
@@ -39,20 +39,20 @@ export default createConfig({
 });
 ```
 
-### service
+### backend
 
 ```js
-import {createConfig} from '@floracodex/eslint-config/service';
+import {createConfig} from '@floracodex/eslint-config/backend';
 
 export default createConfig({
     rootDir: import.meta.dirname
 });
 ```
 
-### Angular
+### frontend
 
 ```js
-import {createConfig} from '@floracodex/eslint-config/angular';
+import {createConfig} from '@floracodex/eslint-config/frontend';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -67,7 +67,7 @@ export default tseslint.config(
 );
 ```
 
-The Angular preset deliberately does **not** enforce a component selector prefix — projects set their own.
+The frontend preset deliberately does **not** enforce a component selector prefix — projects set their own.
 
 ### functions
 
@@ -94,7 +94,7 @@ interface CreateConfigOptions {
 Each preset returns a flat-config array. Spread it and append your own blocks:
 
 ```js
-import {createConfig} from '@floracodex/eslint-config/service';
+import {createConfig} from '@floracodex/eslint-config/backend';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(

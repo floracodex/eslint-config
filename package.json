@@ -10,16 +10,16 @@
         "default": "./dist/lib.js"
       }
     },
-    "./service": {
+    "./backend": {
       "import": {
-        "types": "./dist/service.d.ts",
-        "default": "./dist/service.js"
+        "types": "./dist/backend.d.ts",
+        "default": "./dist/backend.js"
       }
     },
-    "./angular": {
+    "./frontend": {
       "import": {
-        "types": "./dist/angular.d.ts",
-        "default": "./dist/angular.js"
+        "types": "./dist/frontend.d.ts",
+        "default": "./dist/frontend.js"
       }
     },
     "./functions": {
@@ -57,7 +57,6 @@
     "eslint-config",
     "flat-config",
     "typescript",
-    "angular",
     "floracodex"
   ],
   "author": "Flora Codex, LLC",

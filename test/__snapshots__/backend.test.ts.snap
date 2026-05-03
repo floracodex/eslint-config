@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`service preset > matches snapshot 1`] = `
+exports[`backend preset > matches snapshot 1`] = `
 [
   {
     "ignores": [

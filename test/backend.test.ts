@@ -1,8 +1,8 @@
 import {describe, expect, it} from 'vitest';
-import {createConfig} from '../src/service.js';
+import {createConfig} from '../src/backend.js';
 import {serializeConfig} from './snapshot-helper.js';
 
-describe('service preset', () => {
+describe('backend preset', () => {
     it('matches snapshot', () => {
         const config = createConfig({rootDir: '/fake/root'});
         expect(serializeConfig(config)).toMatchSnapshot();
