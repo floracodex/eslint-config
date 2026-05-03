@@ -3,6 +3,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
     "noEmit": true,
     "noUncheckedIndexedAccess": false,
     "exactOptionalPropertyTypes": false,
