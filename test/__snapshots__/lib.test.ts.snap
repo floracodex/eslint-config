@@ -422,7 +422,7 @@ exports[`lib preset > falls back to projectService when tsconfigs omitted 1`] = 
           "format": [
             "camelCase",
           ],
-          "leadingUnderscore": "allow",
+          "leadingUnderscore": "forbid",
           "selector": "parameter",
         },
       ],
@@ -433,14 +433,7 @@ exports[`lib preset > falls back to projectService when tsconfigs omitted 1`] = 
       "@typescript-eslint/no-unsafe-call": "error",
       "@typescript-eslint/no-unsafe-member-access": "error",
       "@typescript-eslint/no-unsafe-return": "error",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_",
-          "caughtErrorsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_",
-        },
-      ],
+      "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/require-await": "error",
     },
   },
@@ -921,7 +914,7 @@ exports[`lib preset > matches snapshot with explicit tsconfigs 1`] = `
           "format": [
             "camelCase",
           ],
-          "leadingUnderscore": "allow",
+          "leadingUnderscore": "forbid",
           "selector": "parameter",
         },
       ],
@@ -932,14 +925,7 @@ exports[`lib preset > matches snapshot with explicit tsconfigs 1`] = `
       "@typescript-eslint/no-unsafe-call": "error",
       "@typescript-eslint/no-unsafe-member-access": "error",
       "@typescript-eslint/no-unsafe-return": "error",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_",
-          "caughtErrorsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_",
-        },
-      ],
+      "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/require-await": "error",
     },
   },

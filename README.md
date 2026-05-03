@@ -23,7 +23,7 @@ The `lib` preset is intentionally stricter than the application presets (severit
 npm install --save-dev @floracodex/eslint-config eslint
 ```
 
-ESLint itself is a peer dependency. Plugin dependencies (`typescript-eslint`, `@stylistic/eslint-plugin`, `globals`, `@eslint/js`, `angular-eslint`) are bundled — consumers do not need to install them directly.
+ESLint itself is a peer dependency. Plugin dependencies (`typescript-eslint`, `@stylistic/eslint-plugin`, `globals`, `@eslint/js`, `angular-eslint`) ship as transitive dependencies — consumers do not need to install them directly.
 
 ## Usage
 
@@ -114,9 +114,9 @@ export default tseslint.config(
 
 Plugin versions are pinned internally; consumers pick up upgrades via `npm update`.
 
-## Self-lint chicken-and-egg
+## Build before lint
 
-The package self-lints with its own `lib` preset, which means `eslint.config.mjs` imports from `dist/`. Run `npm run build` before `npm run lint` in this repo.
+The package's own `eslint.config.mjs` imports `createConfig` from `./dist/lib.js` — ESLint cannot load the config until `dist/` has been built. Run `npm run build` before `npm run lint` in this repo. The config file itself is not linted (it is in the default ignore list); the constraint is purely about ESLint being able to resolve the runtime import.
 
 ## License
 

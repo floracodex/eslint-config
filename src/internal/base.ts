@@ -94,6 +94,10 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
                 '@typescript-eslint/no-unsafe-return': severity,
                 '@typescript-eslint/no-unsafe-call': severity,
 
+                ...(sourceType === 'commonjs' ? {
+                    '@typescript-eslint/no-require-imports': 'off'
+                } : {}),
+
                 ...(isLax ? {
                     '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
                     '@typescript-eslint/unbound-method': 'warn',
@@ -114,11 +118,7 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
                     disallowTypeAnnotations: false
                 }],
 
-                '@typescript-eslint/no-unused-vars': [severity, {
-                    argsIgnorePattern: '^_',
-                    varsIgnorePattern: '^_',
-                    caughtErrorsIgnorePattern: '^_'
-                }],
+                '@typescript-eslint/no-unused-vars': severity,
 
                 '@typescript-eslint/naming-convention': ['warn',
                     {selector: 'variable', format: ['camelCase', 'UPPER_CASE', 'PascalCase'], leadingUnderscore: 'forbid'},

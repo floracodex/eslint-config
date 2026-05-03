@@ -13,7 +13,7 @@ export function createConfig(options: CreateConfigOptions): ConfigArray {
         globals: {...globals.node},
         sourceType: 'module',
         severity: 'error',
-        parameterLeadingUnderscore: 'allow',
+        parameterLeadingUnderscore: 'forbid',
         includeRestrictedExports: true
     });
 
