@@ -1,0 +1,92 @@
+{
+  "name": "@floracodex/eslint-config",
+  "version": "0.1.0",
+  "description": "Shared ESLint flat-config presets for Flora Codex TypeScript projects (lib, NestJS, Angular, Firebase Functions)",
+  "type": "module",
+  "exports": {
+    "./lib": {
+      "import": {
+        "types": "./dist/lib.d.ts",
+        "default": "./dist/lib.js"
+      }
+    },
+    "./service": {
+      "import": {
+        "types": "./dist/service.d.ts",
+        "default": "./dist/service.js"
+      }
+    },
+    "./angular": {
+      "import": {
+        "types": "./dist/angular.d.ts",
+        "default": "./dist/angular.js"
+      }
+    },
+    "./firebase-functions": {
+      "import": {
+        "types": "./dist/firebase-functions.d.ts",
+        "default": "./dist/firebase-functions.js"
+      }
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "typecheck:test": "tsc --noEmit -p tsconfig.test.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "eslint . --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "flat-config",
+    "typescript",
+    "angular",
+    "firebase",
+    "floracodex"
+  ],
+  "author": "Flora Codex, LLC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floracodex/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/floracodex/eslint-config/issues"
+  },
+  "homepage": "https://github.com/floracodex/eslint-config#readme",
+  "peerDependencies": {
+    "eslint": "^10.0.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "angular-eslint": "^21.3.1",
+    "globals": "^17.5.0",
+    "typescript-eslint": "^8.58.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@vitest/coverage-v8": "^4.1.4",
+    "eslint": "^10.2.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  }
+}
