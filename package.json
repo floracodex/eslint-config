@@ -22,10 +22,10 @@
         "default": "./dist/angular.js"
       }
     },
-    "./firebase-functions": {
+    "./functions": {
       "import": {
-        "types": "./dist/firebase-functions.d.ts",
-        "default": "./dist/firebase-functions.js"
+        "types": "./dist/functions.d.ts",
+        "default": "./dist/functions.js"
       }
     }
   },
@@ -58,7 +58,6 @@
     "flat-config",
     "typescript",
     "angular",
-    "firebase",
     "floracodex"
   ],
   "author": "Flora Codex, LLC",

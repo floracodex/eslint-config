@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`firebase-functions preset > matches snapshot 1`] = `
+exports[`functions preset > matches snapshot 1`] = `
 [
   {
     "ignores": [

@@ -5,7 +5,7 @@ export default defineConfig({
         'src/lib.ts',
         'src/service.ts',
         'src/angular.ts',
-        'src/firebase-functions.ts'
+        'src/functions.ts'
     ],
     format: ['esm'],
     dts: true,

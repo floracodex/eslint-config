@@ -1,8 +1,8 @@
 import {describe, expect, it} from 'vitest';
-import {createConfig} from '../src/firebase-functions.js';
+import {createConfig} from '../src/functions.js';
 import {serializeConfig} from './snapshot-helper.js';
 
-describe('firebase-functions preset', () => {
+describe('functions preset', () => {
     it('matches snapshot', () => {
         const config = createConfig({rootDir: '/fake/root'});
         expect(serializeConfig(config)).toMatchSnapshot();

@@ -13,7 +13,7 @@ Four presets, exported as separate subpaths so consumers only pull in the depend
 | `lib` | `@floracodex/eslint-config/lib` | Standalone TypeScript libraries (Node ≥20, no framework) — strict rules |
 | `service` | `@floracodex/eslint-config/service` | Backend service applications — lax rules, `*.spec.ts` overrides, jest globals, CommonJS |
 | `angular` | `@floracodex/eslint-config/angular` | Angular apps and libs — `angular-eslint`, browser + jasmine globals, HTML template rules |
-| `firebase-functions` | `@floracodex/eslint-config/firebase-functions` | Firebase Cloud Functions Gen 2 (Node 20) — node + jest globals, CommonJS |
+| `functions` | `@floracodex/eslint-config/functions` | Cloud function runtimes (Node 20) — node + jest globals, CommonJS, default-export friendly |
 
 The `lib` preset is intentionally stricter than the application presets (severity = `error` on safety rules; the app presets downgrade them to `warn` to accommodate codebases that aren't fully strict-typed yet).
 
@@ -69,10 +69,10 @@ export default tseslint.config(
 
 The Angular preset deliberately does **not** enforce a component selector prefix — projects set their own.
 
-### Firebase Functions
+### functions
 
 ```js
-import {createConfig} from '@floracodex/eslint-config/firebase-functions';
+import {createConfig} from '@floracodex/eslint-config/functions';
 
 export default createConfig({
     rootDir: import.meta.dirname
