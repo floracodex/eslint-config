@@ -82,6 +82,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "languageOptions": {
       "sourceType": "module",
     },
@@ -93,9 +96,6 @@ exports[`frontend preset > matches snapshot 1`] = `
   {
     "files": [
       "**/*.ts",
-      "**/*.tsx",
-      "**/*.mts",
-      "**/*.cts",
     ],
     "name": "typescript-eslint/eslint-recommended",
     "rules": {
@@ -125,6 +125,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "name": "typescript-eslint/recommended-type-checked",
     "rules": {
       "@typescript-eslint/await-thenable": "error",
@@ -180,6 +183,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "languageOptions": {
       "globals": [
         "AI",
@@ -1399,6 +1405,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "plugins": [
       "@stylistic",
     ],
@@ -1488,6 +1497,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "rules": {
       "@typescript-eslint/await-thenable": "warn",
       "@typescript-eslint/consistent-type-imports": [
@@ -1576,6 +1588,9 @@ exports[`frontend preset > matches snapshot 1`] = `
     },
   },
   {
+    "files": [
+      "**/*.ts",
+    ],
     "rules": {
       "@typescript-eslint/no-useless-constructor": "warn",
       "@typescript-eslint/only-throw-error": "warn",

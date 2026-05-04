@@ -14,6 +14,13 @@ export interface BaseOptions {
     severity: 'error' | 'warn';
     parameterLeadingUnderscore: 'allow' | 'forbid';
     includeRestrictedExports: boolean;
+    /**
+     * When set, the TypeScript-specific rule blocks and languageOptions are
+     * scoped to these file patterns. Required for presets that lint mixed
+     * file types (e.g. frontend lints `.html` templates alongside `.ts`)
+     * because the TypeScript parser options break on non-TS parsers.
+     */
+    tsFiles?: string[];
 }
 
 const DEFAULT_IGNORES = ['eslint.config.mjs', 'dist/**', 'node_modules/**', 'coverage/**', '*.config.ts'];
@@ -38,7 +45,8 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
         sourceType,
         severity,
         parameterLeadingUnderscore,
-        includeRestrictedExports
+        includeRestrictedExports,
+        tsFiles
     } = opts;
 
     const parserOptions = tsconfigs
@@ -46,14 +54,18 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
         : {projectService: true, tsconfigRootDir: rootDir};
 
     const isLax = severity === 'warn';
+    const filesScope = tsFiles ? {files: tsFiles} : {};
 
     return tseslint.config(
         {ignores: [...DEFAULT_IGNORES, ...ignores]},
 
         eslint.configs.recommended,
-        ...tseslint.configs.recommendedTypeChecked,
+        ...(tsFiles
+            ? tseslint.configs.recommendedTypeChecked.map((c) => ({...c, files: tsFiles}))
+            : tseslint.configs.recommendedTypeChecked),
 
         {
+            ...filesScope,
             languageOptions: {
                 globals,
                 ...(sourceType ? {sourceType} : {}),
@@ -62,6 +74,7 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
         },
 
         {
+            ...filesScope,
             plugins: {'@stylistic': stylistic},
             rules: {
                 '@stylistic/indent': ['warn', 4, {SwitchCase: 1}],
@@ -95,6 +108,7 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
         },
 
         {
+            ...filesScope,
             rules: {
                 '@typescript-eslint/no-explicit-any': isLax ? 'off' : 'error',
 
@@ -147,6 +161,7 @@ export function createBaseConfig(opts: BaseOptions): ConfigArray {
         },
 
         {
+            ...filesScope,
             rules: {
                 'eqeqeq': ['error', 'always', {null: 'ignore'}],
                 'prefer-const': 'warn',
