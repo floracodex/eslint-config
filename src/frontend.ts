@@ -14,7 +14,8 @@ export function createConfig(options: CreateConfigOptions): ConfigArray {
         globals: {...globals.browser, ...globals.jasmine},
         severity: 'warn',
         parameterLeadingUnderscore: 'forbid',
-        includeRestrictedExports: true
+        includeRestrictedExports: true,
+        tsFiles: ['**/*.ts']
     });
 
     return tseslint.config(
