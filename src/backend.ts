@@ -1,6 +1,6 @@
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import {createBaseConfig} from './internal/base.js';
+import {createBaseConfig, SPEC_FILE_OVERRIDE_RULES} from './internal/base.js';
 import type {ConfigArray, CreateConfigOptions} from './internal/types.js';
 
 export type {ConfigArray, CreateConfigOptions};
@@ -21,15 +21,7 @@ export function createConfig(options: CreateConfigOptions): ConfigArray {
         ...base,
         {
             files: ['**/*.spec.ts', '**/*-spec.ts'],
-            rules: {
-                '@typescript-eslint/no-unsafe-argument': 'off',
-                '@typescript-eslint/no-unsafe-assignment': 'off',
-                '@typescript-eslint/no-unsafe-call': 'off',
-                '@typescript-eslint/no-unsafe-member-access': 'off',
-                '@typescript-eslint/no-unsafe-return': 'off',
-                '@typescript-eslint/no-unsafe-enum-comparison': 'off',
-                '@typescript-eslint/unbound-method': 'off'
-            }
+            rules: {...SPEC_FILE_OVERRIDE_RULES}
         }
     );
 }

@@ -18,6 +18,17 @@ export interface BaseOptions {
 
 const DEFAULT_IGNORES = ['eslint.config.mjs', 'dist/**', 'node_modules/**', 'coverage/**', '*.config.ts'];
 
+export const SPEC_FILE_OVERRIDE_RULES = {
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+    '@typescript-eslint/unbound-method': 'off',
+    '@typescript-eslint/require-await': 'off'
+} as const;
+
 export function createBaseConfig(opts: BaseOptions): ConfigArray {
     const {
         rootDir,

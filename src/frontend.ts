@@ -1,7 +1,7 @@
 import angular from 'angular-eslint';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import {createBaseConfig} from './internal/base.js';
+import {createBaseConfig, SPEC_FILE_OVERRIDE_RULES} from './internal/base.js';
 import type {ConfigArray, CreateConfigOptions} from './internal/types.js';
 
 export type {ConfigArray, CreateConfigOptions};
@@ -41,6 +41,10 @@ export function createConfig(options: CreateConfigOptions): ConfigArray {
                 '@angular-eslint/template/interactive-supports-focus': 'warn',
                 '@angular-eslint/template/click-events-have-key-events': 'warn'
             }
+        },
+        {
+            files: ['**/*.spec.ts', '**/*-spec.ts'],
+            rules: {...SPEC_FILE_OVERRIDE_RULES}
         }
     );
 }
