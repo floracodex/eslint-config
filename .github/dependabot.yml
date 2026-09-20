@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
+    groups:
+      # @vitest/coverage-v8 peers vitest at an exact version; the two only ever move together.
+      vitest:
+        patterns:
+          - vitest
+          - "@vitest/*"
     ignore:
       # typescript 7 is outside typescript-eslint's peer range (<6.1) and Angular 22's (<6.1).
       # Drop this entry once both admit 7.
