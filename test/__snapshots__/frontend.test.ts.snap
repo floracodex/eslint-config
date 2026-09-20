@@ -1687,7 +1687,6 @@ exports[`frontend preset > matches snapshot 1`] = `
       "@angular-eslint/no-empty-lifecycle-method": "warn",
       "@angular-eslint/no-output-on-prefix": "warn",
       "@angular-eslint/prefer-inject": "warn",
-      "@angular-eslint/prefer-on-push-component-change-detection": "off",
       "@typescript-eslint/ban-ts-comment": "warn",
       "@typescript-eslint/no-unnecessary-type-assertion": "warn",
     },
